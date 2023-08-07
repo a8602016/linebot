@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 from line_bot_api import *
 def oil_price(event):
     target_url = 'https://gas.goodlife.tw/'
+    rs = requests.session()
     res = rs.get(target_url,verify = False)
     res.encoding = 'utf-8'
     soup = BeautifulSoup(res.text,'html,parser')
