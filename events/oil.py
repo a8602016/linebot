@@ -1,7 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 from line_bot_api import *
-def oil_price(event):
+def oil_price():
     target_url = 'https://gas.goodlife.tw/'
     rs = requests.session()
     res = rs.get(target_url,verify = False)
