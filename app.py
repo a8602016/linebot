@@ -35,16 +35,18 @@ def handle_message(event):
     # message = TextSendMessage(text = event.message.text)
     # line_bot_api.reply_message(event.reply_token,message)
 
-    emoji = {
+    emoji = [
+        {
         'index':0,
         'productId':'5ac1bfd5040ab15980c9b435',
         'emojiId':'001'
-    }
+    },
     {
         'index':17,
         'productId':'5ac1bfd5040ab15980c9b435',
         'emojiID':'001'
     }
+    ]
 
     text_message = TextSendMessage(text = '''$ Master Finance $ Hello，您好，歡迎您成為Master
     Finance的好友！
