@@ -48,7 +48,6 @@ def handle_message(event):
 
 
 
-
 #————————————————————————————————查詢————————————————————————————————————
 
 
@@ -80,6 +79,20 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token,buttons_template)
 
     
+
+#————————————————————————————————封鎖提醒————————————————————————————————————
+@handler.add(FollowEvent)
+def handle_follow(event):
+    welcome_msg = """阿是在封鎖三小，不必封鎖又解除餒，滾"""
+
+    line_bot_api.reply_message(
+        event.reply_token,
+        TextSendMessage(text = welcome_msg)
+    )
+@handler.add(UnfollowEvent)
+def handle_unfollow(event):
+    print(event)
+
 
 if __name__ == "__main__":
     app.run()
