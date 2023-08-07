@@ -27,33 +27,33 @@ def about_us_event(event):
         sticker_id = '52002763'
     )
 
-    buttons_template = TemplateSendMessage(
-        alt_text='小幫手template',
-        template = ButtonsTemplate(
-            title = '選擇服務',
-            text = '請選擇',
-            thumbnail_image_url='https://i.imgur.com/DTX0I3q.jpg',
-            actions = [
-                MessageTemplateAction(
-                        label = '油價查詢',
-                        text = '油價查詢'
-                ),
-                MessageTemplateAction(
-                    label = '匯率查詢',
-                    text = '匯率查詢'
-                ),
-                MessageTemplateAction(
-                    label = '股價查詢',
-                    text = '股價查詢'
-                )
+    # buttons_template = TemplateSendMessage(
+    #     alt_text='小幫手template',
+    #     template = ButtonsTemplate(
+    #         title = '選擇服務',
+    #         text = '請選擇',
+    #         thumbnail_image_url='https://i.imgur.com/DTX0I3q.jpg',
+    #         actions = [
+    #             MessageTemplateAction(
+    #                     label = '油價查詢',
+    #                     text = '油價查詢'
+    #             ),
+    #             MessageTemplateAction(
+    #                 label = '匯率查詢',
+    #                 text = '匯率查詢'
+    #             ),
+    #             MessageTemplateAction(
+    #                 label = '股價查詢',
+    #                 text = '股價查詢'
+    #             )
             
-            ]
-        )
-    )
-
-    line_bot_api.reply_message(
-        event.reply_token,
-        [text_message,sticker_message,buttons_template])
+    #         ]
+    #     )
+    # ) line_bot_api後面要加bottons_template→↓
+                                           #↓
+    line_bot_api.reply_message(            #↓
+        event.reply_token,                 #↓
+        [text_message,sticker_message])    #←
     
 
 def push_msg(event,msg):
