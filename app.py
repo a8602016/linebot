@@ -37,13 +37,13 @@ def handle_message(event):
 
     emoji = {
         'index':0,
-        'productId':'5ac21184040ab15980c9b43a',
-        'emojiId':'255'
+        'productId':'5ac1bfd5040ab15980c9b435',
+        'emojiId':'001'
     }
     {
         'index':17,
-        'productId':'5ac21184040ab15980c9b43a',
-        'emojiID':'225'
+        'productId':'5ac1bfd5040ab15980c9b435',
+        'emojiID':'001'
     }
 
     text_message = TextSendMessage(text = '''$ Master Finance $ Hello，您好，歡迎您成為Master
@@ -53,8 +53,8 @@ def handle_message(event):
     -直接點選下方【圖中】選單功能
     -期待您的光臨！''',emojis = emoji)
     sticker_message = StickerSendMessage(
-        package_id = '8522',
-        sticker_id = '16581271'
+        package_id = '11537',
+        sticker_id = '52002763'
     )
     line_bot_api.reply_message(
         event.reply_token,
