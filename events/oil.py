@@ -1,0 +1,13 @@
+import requests
+from bs4 import BeautifulSoup
+from line_bot_api import *
+def oil_price(event):
+    target_url = 'https://gas.goodlife.tw/'
+    res = rs.get(target_url,verify = False)
+    res.encoding = 'utf-8'
+    soup = BeautifulSoup(res.text,'html,parser')
+    title = soup.select('#main')[0].text.replace('\n','').split('(')[0]
+    gas_price = soup.select('#gas_price')[0].text.replace('\n\n\n','').replace(' ', '')
+    cpc = soup.select('cpc')[0].text.replace(' ','')
+    content = '{}\n{}{}'.format(title,gas_price,cpc)
+    return content

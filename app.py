@@ -1,6 +1,7 @@
 #載入linebot登入資訊
 from line_bot_api import *
 from events.basic import *
+from events.oil import *
 app = Flask(__name__)
 
 #監聽所有來callback的 Post Request
@@ -28,6 +29,30 @@ def handle_message(event):
     if message_text == '@使用說明':
         about_us_event(event)
         Usage(event)
+
+
+
+
+#————————————————————————————————油價查詢————————————————————————————————————
+
+
+    if event.message.text =='油價查詢':
+        content = oil_price()
+        line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text = content))
+        
+
+
+
+
+
+
+
+#————————————————————————————————查詢————————————————————————————————————
+
+
+
     if event.message.text =='@查詢':
         buttons_template = TemplateSendMessage(
             alt_text='小幫手template',
