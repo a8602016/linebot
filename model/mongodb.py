@@ -10,16 +10,16 @@ def constructor_stock():
     db = client[stockDB]
     return db
 
-#----------------------------更新暫存的股票名稱--------------------------
+#——————————————————————————————— 更新暫存的股票名稱 —————————————————————————————
 def update_my_stock(user_name,  stockNumber, condition , target_price):
-    db=constructor_stock()
+    db = constructor_stock()
     collect = db[user_name]
     collect.update_many({"favorite_stock": stockNumber }, {'$set': {'condition':condition , "price": target_price}})
     content = f"股票{stockNumber}更新成功"
     return content
-#   -----------    新增使用者的股票       -------------
+#——————————————————————————————— 新增使用者的股票 ——————————————————————————————
 def write_my_stock(userID, user_name, stockNumber, condition , target_price):
-    db=constructor_stock()
+    db = constructor_stock()
     collect = db[user_name]
     is_exit = collect.find_one({"favorite_stock": stockNumber})
     if is_exit != None :

@@ -38,7 +38,7 @@ def handle_message(event):
     user_name = profile.display_name #抓取使用者名稱
 
 
-    if message_text == '@使用說明':
+    if message_text == '使用說明':
         about_us_event(event)
         Usage(event)
 
@@ -48,7 +48,7 @@ def handle_message(event):
 #————————————————————————————————油價查詢————————————————————————————————————
 
 
-    if event.message.text =='@油價查詢':
+    if event.message.text =='油價查詢':
         content = oil_price()
         line_bot_api.reply_message(
             event.reply_token,
@@ -119,9 +119,9 @@ def handle_message(event):
 
 
 
-    if event.message.text =='@查詢':
+    if event.message.text =='查詢':
         buttons_template = TemplateSendMessage(
-            alt_text='小幫手template',
+            alt_text='查詢',
             template = ButtonsTemplate(
             title = '選擇服務',
             text = '請選擇',
@@ -129,15 +129,15 @@ def handle_message(event):
             actions = [
                 MessageTemplateAction(
                         label = '油價查詢',
-                        text = '油價查詢'
+                        text = '@油價查詢'
                 ),
                 MessageTemplateAction(
                     label = '匯率查詢',
-                    text = '匯率查詢'
+                    text = '@匯率查詢'
                 ),
                 MessageTemplateAction(
                     label = '股價查詢',
-                    text = '股價查詢'
+                    text = '@股價查詢'
                 )
             
             ]
