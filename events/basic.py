@@ -55,6 +55,9 @@ def about_us_event(event):
         event.reply_token,                 #↓
         [text_message,sticker_message])    #←
     
+# def Inquire(event):
+
+    
 
 def push_msg(event,msg):
     try:
