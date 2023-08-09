@@ -120,29 +120,29 @@ def handle_message(event):
 
 
     if event.message.text == '小幫手':
-            buttons_template=TemplateSendMessage(
-                alt_text='查詢',
-                template=ButtonsTemplate(
-                title='選擇服務',
-                text='請選擇',
-                thumbnail_image_url='https://i.imgur.com/DTX0I3q.jpg',
-                actions=[
-                    MessageTemplateAction(
-                label='油價查詢',
-                text='油價查詢'
-                    ),
-                    MessageTemplateAction(
-                label='匯率查詢',
-                text='匯率查詢'
-                    ),
-                    MessageTemplateAction(
-                label='股價查詢',
-                text='股票查詢'
-                    ),
-                ]
-                )
+        buttons_template=TemplateSendMessage(
+            alt_text='查詢',
+            template=ButtonsTemplate(
+            title='選擇服務',
+            text='請選擇',
+            thumbnail_image_url='https://i.imgur.com/DTX0I3q.jpg',
+            actions=[
+                MessageTemplateAction(
+            label='油價查詢',
+            text='油價查詢'
+                ),
+                MessageTemplateAction(
+            label='匯率查詢',
+            text='匯率查詢'
+                ),
+                MessageTemplateAction(
+            label='股價查詢',
+            text='股票查詢'
+                ),
+            ]
             )
-            line_bot_api.reply_message(event.reply_token,buttons_template)
+        )
+        line_bot_api.reply_message(event.reply_token,buttons_template)
 
     
 
