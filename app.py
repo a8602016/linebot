@@ -60,8 +60,8 @@ def handle_message(event):
         line_bot_api.push_message(uid,TextSendMessage('請輸入#股價代號....'))
 
     
-    ##股價查詢
-    if re.match("@股價查詢", msg):
+##股價查詢
+    if re.match("想知道股價", msg):
         stockNumber = msg
         btn_msg = stock_reply_other(stockNumber)
         line_bot_api.push_message(uid, btn_msg)
@@ -89,19 +89,17 @@ def handle_message(event):
         
         content += '量: %s\n'%(stock_rt['realtime']['accumulate_trade_volume'])
 
-        stock = twstock.Stock(text) #twstock.stock('2330')
+        stock = twstock.Stock(text)
         content += '-----\n'
         content += '最近五日價格: \n'
         price5 = stock.price[-5:][::-1]
         date5 = stock.date[-5:][::-1]
         for i in range(len(price5)):
-            #content +='[%s] %s\n' %(date5[i].strftime('%Y-%m-%d %H:%M:%S'),price5[i]) 
             content += '[%s] %s\n' % (date5[i].strftime("%Y-%m-%d"), price5[i])
         line_bot_api.reply_message(
             event.reply_token, 
             TextSendMessage(text=content)
         )
-
                                     
 #————————————————————————————————查詢————————————————————————————————————
 
