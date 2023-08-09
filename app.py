@@ -56,7 +56,7 @@ def handle_message(event):
 
 #————————————————————————————————股票————————————————————————————————————
 
-    if event.message.text == '@股價查詢':
+    if event.message.text == '想知道股價':
         line_bot_api.push_message(uid,TextSendMessage('請輸入#股價代號....'))
 
     #股價查詢        
