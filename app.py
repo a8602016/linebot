@@ -89,7 +89,7 @@ def handle_message(event):
         )
         content += '量： %s\n' %(stock_rt['realtime']['accumulate_trade_colume'])
 
-        stock = twstock.stock(text) #twstock.stock('2330')
+        stock = twstock.Stock(text) #twstock.stock('2330')
         content += '-----\n'
         content += '最近五日價格： \n'
         price5 = stock.price[-5:][::-1]

@@ -18,6 +18,12 @@ def stock_reply_other(stockNumber):
                         label = 'K線圖',
                         text = '@K'+stockNumber
                     )
+                ),
+                 QuickReplyButton(
+                    action = MessageAction( 
+                        label = '預設',
+                        text = '#2303'
+                    )
                 )
             ]
         )
