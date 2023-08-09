@@ -119,7 +119,7 @@ def handle_message(event):
 
 
 
-    if event.message.text=='查詢':
+    if event.message.text == '小幫手':
             buttons_template=TemplateSendMessage(
                 alt_text='查詢',
                 template=ButtonsTemplate(
